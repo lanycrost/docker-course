@@ -2,7 +2,7 @@
 # vi: set ft=ruby :
 
 ENV["VAGRANT_DEFAULT_PROVIDER"] = "virtualbox"
-BOX_IMAGE = "centos/8"
+BOX_IMAGE = "centos/7"
 
 # All Vagrant configuration is done below. The "2" in Vagrant.configure
 # configures the configuration version (we support older styles for
@@ -74,6 +74,12 @@ Vagrant.configure("2") do |config|
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
     yum install epel-release -y
-    yum install install -y vim tmux
+    yum install install -y vim htop tree yum-utils
+    rpm --import https://download.docker.com/linux/centos/gpg
+    yum-config-manager -y \
+      --add-repo \
+      https://download.docker.com/linux/centos/docker-ce.repo
+    yum install docker-ce -y
+    systemctl enable --now docker
   SHELL
 end
