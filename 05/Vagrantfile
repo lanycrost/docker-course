@@ -21,7 +21,7 @@ Vagrant.configure("2") do |config|
   # Vagrant will not manage the hostname. If set to a string, 
   # the hostname will be set on boot. If set, Vagrant will update 
   # /etc/hosts on the guest with the configured hostname.
-  config.vm.hostname = "dt03.loc"
+  config.vm.hostname = "dt05.loc"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -41,7 +41,7 @@ Vagrant.configure("2") do |config|
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
-  config.vm.network "private_network", ip: "192.168.33.12"
+  config.vm.network "private_network", ip: "192.168.33.14"
 
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
