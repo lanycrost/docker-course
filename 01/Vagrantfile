@@ -74,7 +74,7 @@ Vagrant.configure("2") do |config|
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
     yum install epel-release -y
-    yum install install -y vim htop tree yum-utils
+    yum install install -y vim htop tree yum-utils tmux
     rpm --import https://download.docker.com/linux/centos/gpg
     yum-config-manager -y \
       --add-repo \
